@@ -38,16 +38,16 @@ Along with the users table migration, some endpoints!
 **POST**: `/api/auth/login`
 
 - requires an email and password
-- returns a JWT token and the following on success:
+- example of a successful `200` response:
 
   ```javascript
   {
-  first_name: "first_name",
-  last_name: "last_name",
-  email: "email",
-  user_id: "user_id",
-  photo_url: "photo_url",
-  token: "jsonwebtoken",
+    "user_id": 1,
+    "first_name": "fname",
+    "last_name": "lname",
+    "email": "test@gmail.com",
+    "photo_url": null,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZm5hbWUiLCJsYXN0X25hbWUiOiJsbmFtZSIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJ1c2VyX2lkIasdfasdfasdfi339dfDY0NTI4NDcsImV4cCI6MTY0Njg4NDg0N30.bOi7V1SeYqn_basdf_dfdoEUesXE6KE0xd5O0"
   }
   ```
 
@@ -62,12 +62,24 @@ Along with the users table migration, some endpoints!
   first_name: "firstname",
   last_name: "lastname",
   email: "validemail@gmail.com",
-  photo_url: "stringasdfdfasdf",
   password: "stringadsf",
   }
 ```
 
-- returns a JWT token
+- example of a successful `201` response:
+
+```javascript
+{
+    "user_id": 2,
+    "first_name": "fname",
+    "last_name": "lname",
+    "email": "test2@gmail.com",
+    "photo_url": null,
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZm5hbWUiLCJsYXN0X25hbWUiOiJsbmFtZSIsImVtYWlsIjoidGVzdDJAZ21haWwuY29tIiwiaWF0IjoxNjQ2NDUzMDgzLCJleHAiOjE2NDY4ODUwODN9.ALfvUReplDobFfqqZkbD2TqaU9Qzxu8c3kpWmoJfFOo"
+}
+```
+
+- returns "invalid registry" on failure
 
 #### User
 
