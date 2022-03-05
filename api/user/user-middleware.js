@@ -1,4 +1,4 @@
-const User = require("../user-model");
+const User = require("./user-model");
 
 const alreadyExistsInDb = async (req, res, next) => {
   const { email } = req.body;
