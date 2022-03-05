@@ -34,12 +34,12 @@ router.post(
   checkEmailExists,
   validatePassword,
   (req, res) => {
+    // would not want to send back passwords to the client, even if hashed.
+
+    delete req.userFromDb.password;
+
     res.status(200).json({
-      first_name: req.userFromDb.first_name,
-      last_name: req.userFromDb.last_name,
-      email: req.userFromDb.email,
-      user_id: req.userFromDb.user_id,
-      photo_url: req.userFromDb.photo_url,
+      ...req.userFromDb,
       token: req.token,
     });
   }
